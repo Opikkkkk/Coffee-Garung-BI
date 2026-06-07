@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - CoffCo Gunung Manglayang</title>
+    <style>
+        /* --- CORE STYLES & VARIABLES (TEMA HIJAU) --- */
+        /* Pastikan variabel ini sama persis dengan index.html agar konsisten */
+        :root {
+            --bg-cream: #fbf9f5;          
+            --header-cream: #e1e8e1;      
+            --primary-green: #2d5a27;     
+            --dark-olive: #1c2e1a;        
+            --text-muted: #556b2f;        
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--dark-olive);
+            line-height: 1.6;
+        }
+
+        /* --- GLOBAL NAVBAR (Sama dengan index.html) --- */
+        header {
+            background-color: var(--header-cream);
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #cbd5cb;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--dark-olive);
+            letter-spacing: 1px;
+            text-transform: lowercase;
+        }
+        .logo span { color: var(--primary-green); }
+
+        nav a {
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--dark-olive);
+            margin: 0 15px;
+            letter-spacing: 1px;
+            transition: 0.3s ease;
+        }
+        nav a:hover, nav a.active { 
+            color: var(--primary-green); 
+        }
+
+        .btn-nav-order {
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 10px 22px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .btn-nav-order:hover {
+            background-color: var(--dark-olive);
+        }
+
+        /* --- PAGE HEADER --- */
+        .page-header {
+            background-color: var(--header-cream);
+            padding: 60px 8%;
+            text-align: center;
+            border-bottom: 1px solid #cbd5cb;
+        }
+        .page-header h1 {
+            font-size: 36px;
+            color: var(--dark-olive);
+            font-weight: 900;
+        }
+        .page-header h1 span { color: var(--primary-green); }
+
+        /* --- ABOUT STORY SECTION --- */
+        .about-section {
+            padding: 80px 8%;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-image { flex: 1; }
+        .about-image .img-box {
+            width: 100%;
+            height: 450px;
+            background: #bfcabb;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-olive);
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 15px 30px rgba(28,46,26,0.08);
+        }
+
+        .about-text { flex: 1; }
+        .about-text h2 { 
+            font-size: 38px; 
+            color: var(--dark-olive); 
+            margin-bottom: 20px; 
+            line-height: 1.2;
+        }
+        .about-text h2 span { color: var(--primary-green); }
+        
+        .about-text p { 
+            color: var(--text-muted); 
+            margin-bottom: 20px; 
+            font-size: 16px;
+            text-align: justify;
+        }
+        
+        /* --- STATS SECTION --- */
+        .stats-container {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px dashed #cbd5cb;
+        }
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .stat-number { 
+            font-size: 48px; 
+            font-weight: 900; 
+            color: var(--primary-green); 
+            line-height: 1; 
+            margin-bottom: 5px;
+        }
+        
+        .stat-label { 
+            font-size: 14px; 
+            color: var(--dark-olive); 
+            font-weight: 700; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- MISSION BANNER --- */
+        .mission-banner {
+            background-color: var(--dark-olive);
+            color: var(--white);
+            padding: 60px 8%;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .mission-banner h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #cbd5cb;
+        }
+        .mission-banner p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #e1e8e1;
+        }
+        .mission-banner p span {
+            color: var(--primary-green);
+            background-color: var(--white);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        /* --- GLOBAL FOOTER (Sama dengan index.html) --- */
+        footer {
+            background-color: var(--dark-olive);
+            color: #cbd5cb;
+            padding: 40px 8%;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 0; /* Diubah karena ada mission banner */
+            border-top: 1px solid #2d5a27;
+        }
+        footer p span { color: var(--white); font-weight: bold; }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 768px) {
+            header { padding: 15px 5%; flex-direction: column; gap: 15px; }
+            nav { margin: 10px 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+            nav a { margin: 0 5px; font-size: 11px; }
+            
+            .about-section { flex-direction: column; padding: 40px 5%; gap: 30px; }
+            .about-image .img-box { height: 300px; }
+            .about-text h2 { font-size: 28px; }
+            .stats-container { gap: 20px; justify-content: center; text-align: center; flex-wrap: wrap; }
+            .mission-banner { padding: 40px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR UTAMA -->
+    <header>
+        <div class="logo">coffee<span>Garung.</span></div>
+        <nav>
+            <a href="homepage.html">Home</a>
+            <a href="about.html" class="active">Tentang Kami</a>
+            <a href="product.html">Produk</a>
+            <a href="coffeeshop.html">Kedai Kopi</a>
+            <a href="contact.html">Kontak</a>
+        </nav>
+        <a href="product.html" class="btn-nav-order">Order Now</a>
+    </header>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <h1>Kisah <span>Perjalanan Kami</span></h1>
+    </div>
+
+    <!-- ABOUT STORY SECTION -->
+<section class="about-section">
+    <!-- Kolom Kiri: Foto -->
+    <div class="about-image">
+        <!-- Pastikan src mengarah ke folder dan nama file yang benar -->
+        <img src="aset/petanikopi.jpg" alt="Petani Kopi" style="width: 100%; height: 450px; object-fit: cover; border-radius: 12px; box-shadow: 0 15px 30px rgba(28,46,26,0.08);">
+    </div>
+    
+    <!-- Kolom Kanan: Teks -->
+    <div class="about-text">
+        <h2>Lebih Dari Sekadar <span>Produsen Kopi</span></h2>
+        <p>Berawal dari hamparan subur di lereng Gunung Manglayang, CoffCo lahir dari sebuah dedikasi untuk mengangkat potensi alam Priangan. Kami bukan sekadar penadah, melainkan pengelola perkebunan mandiri yang terintegrasi langsung dengan para penggarap lahan.</p>
+        
+        <p>Selama ini, mayoritas kopi unggulan kami hanya berakhir sebagai komoditas mentah (green beans). Kini, kami mengambil langkah maju. Dengan mengolah hasil panen menjadi produk kemasan *roast beans* dan bubuk premium yang siap seduh, kami memastikan setiap cangkir yang Anda nikmati membawa dampak ekonomi yang jauh lebih besar dan adil bagi mereka yang menanamnya.</p>
+        
+        <div class="stats-container">
+            <div class="stat-item">
+                <span class="stat-number">31</span>
+                <span class="stat-label">Petani Lokal Binaan</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">55</span>
+                <span class="stat-label">Ton Panen per Tahun</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- MISSION BANNER -->
+    <section class="mission-banner">
+        <h3>Misi Nilai Tambah Kami</h3>
+        <p>Dari 55 ton kapasitas panen tahunan kami, <span>95%</span> dulunya hanya dijual sebagai biji mentah tanpa identitas. Melalui produk yang Anda beli di sini, Anda membantu kami menaikkan porsi <span>5%</span> produk olahan bernilai tinggi, memberikan apresiasi yang layak bagi kopi Manglayang dan para petaninya.</p>
+    </section>
+
+    <!-- FOOTER UTAMA -->
+    <footer>
+        <p>&copy; 2026 <span>coffco.</span> - Gunung Manglayang Coffee Producer. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

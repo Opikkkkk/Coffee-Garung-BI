@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Produk - CoffCo Gunung Manglayang</title>
+    <style>
+        /* --- CORE STYLES & VARIABLES (TEMA HIJAU) --- */
+        :root {
+            --bg-cream: #fbf9f5;          
+            --header-cream: #e1e8e1;      
+            --primary-green: #2d5a27;     
+            --dark-olive: #1c2e1a;        
+            --text-muted: #556b2f;        
+            --white: #ffffff;
+            --badge-red: #8b322c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--dark-olive);
+            line-height: 1.6;
+        }
+
+        /* --- GLOBAL NAVBAR --- */
+        header {
+            background-color: var(--header-cream);
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #cbd5cb;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--dark-olive);
+            letter-spacing: 1px;
+            text-transform: lowercase;
+        }
+        .logo span { color: var(--primary-green); }
+
+        nav a {
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--dark-olive);
+            margin: 0 15px;
+            letter-spacing: 1px;
+            transition: 0.3s ease;
+        }
+        nav a:hover, nav a.active { 
+            color: var(--primary-green); 
+        }
+
+        .btn-nav-order {
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 10px 22px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .btn-nav-order:hover {
+            background-color: var(--dark-olive);
+        }
+
+        /* --- PAGE HEADER --- */
+        .page-header {
+            background-color: var(--header-cream);
+            padding: 60px 8%;
+            text-align: center;
+            border-bottom: 1px solid #cbd5cb;
+        }
+        .page-header h1 {
+            font-size: 36px;
+            color: var(--dark-olive);
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+        .page-header h1 span { color: var(--primary-green); }
+        .page-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 16px;
+        }
+
+        /* --- PRODUCT CATALOG SECTION --- */
+        .products {
+            padding: 80px 8%;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Memaksa maksimal 4 kolom */
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #cbd5cb;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .product-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 15px 30px rgba(28,46,26,0.08); 
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            color: var(--white);
+            padding: 5px 12px;
+            font-size: 11px;
+            font-weight: bold;
+            border-radius: 4px;
+            letter-spacing: 1px;
+        }
+        .badge-sale { background-color: var(--badge-red); }
+        .badge-best { background-color: var(--primary-green); }
+
+        .product-info h4 { 
+            color: var(--dark-olive); 
+            font-size: 18px; 
+            margin-bottom: 8px; 
+        }
+        .product-info .notes {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            min-height: 40px; 
+        }
+        .product-info .price { 
+            color: var(--primary-green); 
+            font-weight: 900; 
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .btn-wa {
+            display: block;
+            background-color: var(--dark-olive);
+            color: var(--white);
+            padding: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .btn-wa:hover {
+            background-color: var(--primary-green);
+        }
+
+        /* --- GLOBAL FOOTER --- */
+        footer {
+            background-color: var(--dark-olive);
+            color: #cbd5cb;
+            padding: 40px 8%;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 40px;
+            border-top: 3px solid var(--primary-green);
+        }
+        footer p span { color: var(--white); font-weight: bold; }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 992px) {
+            .product-grid { grid-template-columns: repeat(3, 1fr); } /* 3 kolom untuk layar sedang */
+        }
+        
+        @media (max-width: 768px) {
+            header { padding: 15px 5%; flex-direction: column; gap: 15px; }
+            nav { margin: 10px 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+            nav a { margin: 0 5px; font-size: 11px; }
+            .products { padding: 50px 5%; }
+            .product-grid { grid-template-columns: repeat(2, 1fr); } /* 2 kolom untuk layar tablet/HP besar */
+        }
+
+        @media (max-width: 480px) {
+            .product-grid { grid-template-columns: 1fr; } /* 1 kolom memanjang ke bawah untuk HP kecil */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">coffee<span>garung.</span></div>
+        <nav>
+            <a href="homepage.html">Home</a>
+            <a href="about.html">Tentang Kami</a>
+            <a href="product.html" class="active">Produk</a>
+            <a href="coffeeshop.html">Kedai Kopi</a>
+            <a href="contact.html">Kontak</a>
+        </nav>
+        <a href="product.html" class="btn-nav-order">Order Now</a>
+    </header>
+
+    <div class="page-header">
+        <h1>Katalog <span>Produk Olahan</span></h1>
+        <p>Beralihlah menikmati kopi sejati. Berikut adalah pilihan roast beans dan kopi bubuk premium hasil kurasi panen terbaik perkebunan kami.</p>
+    </div>
+
+    <section class="products">
+        <div class="product-grid">
+            
+            <div class="product-card">
+                <img src="aset/produk2.jpg" alt="Manglayang Arabica" style="width: 100%; height: 240px; object-fit: cover; border-radius: 6px; margin-bottom: 15px;">
+                <div class="product-info">
+                    <h4>Manglayang Arabica</h4>
+                    <p class="notes">Light Roast | Notes: Fruity, Brown Sugar, Clean Aftertaste</p>
+                    <p class="price">Rp 85.000</p>
+                    <a href="#" class="btn-wa">Beli via WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <span class="badge badge-best">BEST SELLER</span>
+                <img src="aset/produk3.jpg" alt="Manglayang House Blend" style="width: 100%; height: 240px; object-fit: cover; border-radius: 6px; margin-bottom: 15px;">
+                <div class="product-info">
+                    <h4>Manglayang House Blend</h4>
+                    <p class="notes">Medium-Dark Roast | Cocok untuk Kopi Susu & Espresso</p>
+                    <p class="price">Rp 75.000</p>
+                    <a href="#" class="btn-wa">Beli via WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="aset/produk4.jpg" alt="Premium Honey Process" style="width: 100%; height: 240px; object-fit: cover; border-radius: 6px; margin-bottom: 15px;">
+                <div class="product-info">
+                    <h4>Premium Honey Process</h4>
+                    <p class="notes">Medium Roast | Notes: Sweetness, Caramel, Floral</p>
+                    <p class="price">Rp 95.000</p>
+                    <a href="#" class="btn-wa">Beli via WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <span class="badge badge-sale">SALE 15%</span>
+                <img src="aset/produk5.jpg" alt="Manglayang Peaberry" style="width: 100%; height: 240px; object-fit: cover; border-radius: 6px; margin-bottom: 15px;">
+                <div class="product-info">
+                    <h4>Manglayang Peaberry</h4>
+                    <p class="notes">Kopi Lanang | Body Tebal, Tingkat Keasaman Rendah</p>
+                    <p class="price">Rp 110.000</p>
+                    <a href="#" class="btn-wa">Beli via WhatsApp</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 <span>coffeegarung.</span> - Gunung Manglayang Coffee Producer. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Kami - CoffCo Gunung Manglayang</title>
+    <style>
+        /* --- CORE STYLES & VARIABLES (TEMA HIJAU) --- */
+        :root {
+            --bg-cream: #fbf9f5;          
+            --header-cream: #e1e8e1;      
+            --primary-green: #2d5a27;     
+            --dark-olive: #1c2e1a;        
+            --text-muted: #556b2f;        
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--dark-olive);
+            line-height: 1.6;
+        }
+
+        /* --- GLOBAL NAVBAR --- */
+        header {
+            background-color: var(--header-cream);
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #cbd5cb;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--dark-olive);
+            letter-spacing: 1px;
+            text-transform: lowercase;
+        }
+        .logo span { color: var(--primary-green); }
+
+        nav a {
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--dark-olive);
+            margin: 0 15px;
+            letter-spacing: 1px;
+            transition: 0.3s ease;
+        }
+        nav a:hover, nav a.active { 
+            color: var(--primary-green); 
+        }
+
+        .btn-nav-order {
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 10px 22px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .btn-nav-order:hover {
+            background-color: var(--dark-olive);
+        }
+
+        /* --- PAGE HEADER --- */
+        .page-header {
+            background-color: var(--header-cream);
+            padding: 60px 8%;
+            text-align: center;
+            border-bottom: 1px solid #cbd5cb;
+        }
+        .page-header h1 {
+            font-size: 36px;
+            color: var(--dark-olive);
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+        .page-header h1 span { color: var(--primary-green); }
+        .page-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 16px;
+        }
+
+        /* --- CONTACT SECTION --- */
+        .contact-section {
+            padding: 80px 8%;
+            display: flex;
+            gap: 50px;
+        }
+
+        /* Info & Peta (Sisi Kiri) */
+        .contact-info {
+            flex: 1;
+        }
+        .info-detail {
+            margin-bottom: 30px;
+        }
+        .info-detail h3 {
+            font-size: 18px;
+            color: var(--primary-green);
+            margin-bottom: 5px;
+        }
+        .info-detail p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        .map-box {
+            width: 100%;
+            height: 250px;
+            background: #bfcabb;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-olive);
+            font-weight: bold;
+            border: 1px solid #cbd5cb;
+        }
+
+        /* Form (Sisi Kanan) */
+        .contact-form {
+            flex: 1;
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(28,46,26,0.05);
+            border: 1px solid #cbd5cb;
+        }
+        .contact-form h2 {
+            font-size: 24px;
+            color: var(--dark-olive);
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--dark-olive);
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #cbd5cb;
+            border-radius: 4px;
+            font-size: 14px;
+            background-color: var(--bg-cream);
+            color: var(--dark-olive);
+            transition: 0.3s;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            background-color: var(--white);
+            box-shadow: 0 0 0 3px rgba(45, 90, 39, 0.1);
+        }
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 14px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .btn-submit:hover {
+            background-color: var(--dark-olive);
+        }
+
+        /* --- GLOBAL FOOTER --- */
+        footer {
+            background-color: var(--dark-olive);
+            color: #cbd5cb;
+            padding: 40px 8%;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 40px;
+            border-top: 3px solid var(--primary-green);
+        }
+        footer p span { color: var(--white); font-weight: bold; }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 768px) {
+            header { padding: 15px 5%; flex-direction: column; gap: 15px; }
+            nav { margin: 10px 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+            nav a { margin: 0 5px; font-size: 11px; }
+            .contact-section { flex-direction: column; padding: 50px 5%; gap: 40px; }
+            .contact-form { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR UTAMA -->
+    <header>
+        <div class="logo">coffee<span>Garung.</span></div>
+        <nav>
+            <a href="homepage.html">Home</a>
+            <a href="about.html">Tentang Kami</a>
+            <a href="product.html">Produk</a>
+            <a href="coffeeshop.html">Kedai Kopi</a>
+            <a href="contact.html" class="active">Kontak</a>
+        </nav>
+        <a href="product.html" class="btn-nav-order">Order Now</a>
+    </header>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <h1>Hubungi <span>Kami</span></h1>
+        <p>Mari berkolaborasi. Hubungi kami untuk kebutuhan supply biji kopi, pemesanan kemasan retail dalam jumlah besar, atau sekadar menyapa.</p>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section">
+        
+        <!-- Sisi Kiri: Info Alamat & Peta -->
+        <div class="contact-info">
+            <div class="info-detail">
+                <h3>Alamat Perkebunan & Kedai</h3>
+                <p>Cilengkrang, Bandung Regency, West Java 40615, Indonesia<br>Kabupaten Bandung, Jawa Barat</p>
+            </div>
+            <div class="info-detail">
+                <h3>Kontak Langsung</h3>
+                <p>WhatsApp: +62 878 2172 4599<br>Email: halo@coffcomanglayang.com</p>
+            </div>
+            
+            <!-- Tempat Peta -->
+            <div class="map-box" style="padding: 0; overflow: hidden; border: none;">
+    <iframe src="https://maps.google.com/maps?q=Sekolah+Rimba+Indonesia&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+        </div>
+
+        <!-- Sisi Kanan: Formulir Kontak -->
+        <div class="contact-form">
+            <h2>Kirim Pesan</h2>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Nama Lengkap</label>
+                    <input type="text" id="name" class="form-control" placeholder="Masukkan nama Anda" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Alamat Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="contoh@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subjek / Keperluan</label>
+                    <input type="text" id="subject" class="form-control" placeholder="Contoh: Info Kemitraan" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Pesan Anda</label>
+                    <textarea id="message" class="form-control" placeholder="Tuliskan pesan Anda di sini..." required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Kirim Pesan</button>
+            </form>
+        </div>
+
+    </section>
+
+    <!-- FOOTER UTAMA -->
+    <footer>
+        <p>&copy; 2026 <span>coffco.</span> - Gunung Manglayang Coffee Producer. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kedai Kopi - CoffCo Gunung Manglayang</title>
+    <style>
+        /* --- CORE STYLES & VARIABLES (TEMA HIJAU) --- */
+        :root {
+            --bg-cream: #fbf9f5;          
+            --header-cream: #e1e8e1;      
+            --primary-green: #2d5a27;     
+            --dark-olive: #1c2e1a;        
+            --text-muted: #556b2f;        
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--dark-olive);
+            line-height: 1.6;
+        }
+
+        /* --- GLOBAL NAVBAR --- */
+        header {
+            background-color: var(--header-cream);
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #cbd5cb;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--dark-olive);
+            letter-spacing: 1px;
+            text-transform: lowercase;
+        }
+        .logo span { color: var(--primary-green); }
+
+        nav a {
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--dark-olive);
+            margin: 0 15px;
+            letter-spacing: 1px;
+            transition: 0.3s ease;
+        }
+        nav a:hover, nav a.active { 
+            color: var(--primary-green); 
+        }
+
+        .btn-nav-order {
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 10px 22px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .btn-nav-order:hover {
+            background-color: var(--dark-olive);
+        }
+
+        /* --- PAGE HEADER --- */
+        .page-header {
+            background-color: var(--header-cream);
+            padding: 60px 8%;
+            text-align: center;
+            border-bottom: 1px solid #cbd5cb;
+        }
+        .page-header h1 {
+            font-size: 36px;
+            color: var(--dark-olive);
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+        .page-header h1 span { color: var(--primary-green); }
+        .page-header p {
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 16px;
+        }
+
+        /* --- SHOP VIBE SECTION --- */
+        .shop-vibe {
+            padding: 80px 8%;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .vibe-text { flex: 1; }
+        .vibe-text h2 {
+            font-size: 32px;
+            color: var(--dark-olive);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .vibe-text p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .vibe-image { flex: 1; }
+        .vibe-image .img-box {
+            width: 100%;
+            height: 350px;
+            background: #bfcabb;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-olive);
+            font-weight: bold;
+            box-shadow: 0 15px 30px rgba(28,46,26,0.08);
+        }
+
+        /* --- SIGNATURE MENU SECTION --- */
+        .menu-section {
+            background-color: var(--white);
+            padding: 80px 8%;
+            text-align: center;
+        }
+        .menu-section h2 {
+            font-size: 32px;
+            color: var(--dark-olive);
+            margin-bottom: 40px;
+        }
+        .menu-section h2 span { color: var(--primary-green); }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            text-align: left;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .menu-item {
+            padding: 20px;
+            border-bottom: 1px dashed #cbd5cb;
+        }
+        .menu-item:last-child { border-bottom: none; }
+        .menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .menu-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--dark-olive);
+        }
+        .menu-price {
+            font-weight: 900;
+            color: var(--primary-green);
+        }
+        .menu-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* --- INFO BANNER (HOURS & LOCATION) --- */
+        .info-banner {
+            background-color: var(--dark-olive);
+            color: var(--white);
+            padding: 60px 8%;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .info-block h3 {
+            color: var(--primary-green);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        .info-block p {
+            color: #cbd5cb;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* --- GLOBAL FOOTER --- */
+        footer {
+            background-color: var(--dark-olive);
+            color: #cbd5cb;
+            padding: 40px 8%;
+            text-align: center;
+            font-size: 14px;
+            border-top: 1px solid #2d5a27;
+        }
+        footer p span { color: var(--white); font-weight: bold; }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 768px) {
+            header { padding: 15px 5%; flex-direction: column; gap: 15px; }
+            nav { margin: 10px 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+            nav a { margin: 0 5px; font-size: 11px; }
+            .shop-vibe { flex-direction: column; padding: 40px 5%; }
+            .menu-section { padding: 50px 5%; }
+            .info-banner { flex-direction: column; padding: 40px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR UTAMA -->
+    <header>
+        <div class="logo">coffee<span>Garung.</span></div>
+        <nav>
+            <a href="homepage.html">Home</a>
+            <a href="about.html">Tentang Kami</a>
+            <a href="product.html">Produk</a>
+            <a href="coffeeshop.html" class="active">Kedai Kopi</a>
+            <a href="contact.html">Kontak</a>
+        </nav>
+        <a href="product.html" class="btn-nav-order">Order Now</a>
+    </header>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <h1>Ruang Seduh <span>Manglayang</span></h1>
+        <p>Rasakan langsung kesegaran kopi yang baru saja dipanggang. Kunjungi kedai fisik kami dan nikmati suasana hangat khas perkebunan Priangan.</p>
+    </div>
+
+    <!-- SHOP VIBE SECTION -->
+    <section class="shop-vibe">
+        <div class="vibe-text">
+            <h2>Hilirisasi dari Kebun ke <span>Cangkir Anda</span></h2>
+            <p>Kedai kopi kami bukan sekadar tempat nongkrong biasa, melainkan ruang pameran utama (showroom) untuk produk-produk terbaik dari perkebunan CoffCo.</p>
+            <p>Di sini, Anda bisa berinteraksi langsung dengan para barista kami yang memahami persis perjalanan setiap biji kopi sejak ditanam oleh 31 petani binaan kami di lereng gunung. Jika Anda menyukai seduhan kami, Anda bisa langsung membawa pulang produk kemasannya!</p>
+        </div>
+        <div class="vibe-image">
+            <div class="img-box">[ Placeholder: Foto Suasana Kedai Kopi / Barista Sedang Menyeduh ]</div>
+        </div>
+    </section>
+
+    <!-- SIGNATURE MENU SECTION -->
+    <section class="menu-section">
+        <h2>Menu <span>Andalan Kedai</span></h2>
+        <div class="menu-grid">
+            
+            <div class="menu-item">
+                <div class="menu-header">
+                    <span class="menu-title">V60 Manglayang Arabica</span>
+                    <span class="menu-price">Rp 25.000</span>
+                </div>
+                <p class="menu-desc">Seduhan manual brew menonjolkan aroma fruity dan clean aftertaste khas Manglayang.</p>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-header">
+                    <span class="menu-title">Es Kopi Susu Petani</span>
+                    <span class="menu-price">Rp 22.000</span>
+                </div>
+                <p class="menu-desc">Perpaduan House Blend kami dengan gula aren murni organik dan susu segar.</p>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-header">
+                    <span class="menu-title">Manglayang Peaberry Espresso</span>
+                    <span class="menu-price">Rp 20.000</span>
+                </div>
+                <p class="menu-desc">Espresso single shot dari biji kopi lanang pilihan dengan body yang tebal.</p>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-header">
+                    <span class="menu-title">Honey Process Japanese Iced</span>
+                    <span class="menu-price">Rp 28.000</span>
+                </div>
+                <p class="menu-desc">Kopi seduh dingin menggunakan beans proses honey, sangat menyegarkan.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- INFO BANNER (HOURS & LOCATION) -->
+    <section class="info-banner">
+        <div class="info-block">
+            <h3>Jam Operasional</h3>
+            <p>Senin - Jumat: 09.00 - 21.00 WIB<br>Sabtu - Minggu: 08.00 - 22.00 WIB</p>
+        </div>
+        <div class="info-block">
+            <h3>Fasilitas Kedai</h3>
+            <p>Area Roastery Terbuka<br>Free Wi-Fi & Area Kerja<br>Toko Oleh-oleh Biji Kopi</p>
+        </div>
+    </section>
+
+    <!-- FOOTER UTAMA -->
+    <footer>
+        <p>&copy; 2026 <span>coffco.</span> - Gunung Manglayang Coffee Producer. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
