@@ -19,7 +19,7 @@ Website informasi dan e-commerce untuk produsen kopi premium dari Gunung Manglay
 
 ```
 BI_CoffeeGarung/
-├── homepage.html      # Halaman utama dengan hero section dan featured products
+├── index.html         # Halaman utama dengan hero section dan featured products
 ├── product.html       # Katalog produk lengkap
 ├── about.html         # Tentang perusahaan dan kisah kami
 ├── contact.html       # Formulir kontak dan informasi lokasi
@@ -88,7 +88,7 @@ BI_CoffeeGarung/
 ## 🚀 Cara Membuka
 
 1. Clone repository ini atau download file
-2. Buka file `homepage.html` di browser Anda
+2. Buka file `index.html` di browser Anda
 3. Gunakan navigasi untuk menjelajahi halaman lain
 
 ### Catatan:
@@ -101,7 +101,7 @@ BI_CoffeeGarung/
 
 | Halaman | File | Deskripsi |
 |---------|------|-----------|
-| Beranda | `homepage.html` | Halaman utama dengan overview produk |
+| Beranda | `index.html` | Halaman utama dengan overview produk |
 | Produk | `product.html` | Katalog lengkap semua varian kopi |
 | Tentang | `about.html` | Informasi tentang perusahaan |
 | Kontak | `contact.html` | Formulir dan informasi kontak |
