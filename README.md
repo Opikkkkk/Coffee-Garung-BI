@@ -1,6 +1,6 @@
-# CoffCo - Produsen Kopi Gunung Manglayang
+# Coffee Garung - Produsen Kopi Gunung Manglayang
 
-Website informasi dan e-commerce untuk produsen kopi premium dari Gunung Manglayang.
+Website informasi untuk produsen kopi premium dari Gunung Manglayang.
 
 ## 📋 Tim Pengembang
 
